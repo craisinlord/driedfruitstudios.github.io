@@ -35,7 +35,7 @@
         <div>
           <a href="mailto:contact@driedfruitstudios.com">contact@driedfruitstudios.com</a> &nbsp;·&nbsp;
           <a href="https://discord.com/invite/72a7jmc5mb" target="_blank" rel="noopener">Discord</a> &nbsp;·&nbsp;
-          <a href="https://www.youtube.com/@layncemc" target="_blank" rel="noopener">YouTube</a> &nbsp;·&nbsp;
+          <a href="https://www.youtube.com/@driedfruitstudios" target="_blank" rel="noopener">YouTube</a> &nbsp;·&nbsp;
           <a href="https://www.curseforge.com/members/craisinlord/projects" target="_blank" rel="noopener">CurseForge</a>
         </div>
       </div>

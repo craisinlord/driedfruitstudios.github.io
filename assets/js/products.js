@@ -7,6 +7,7 @@
   const wantCategory = mount.dataset.category || "all";
   const wantFeatured = mount.dataset.featured === "true";
   const limit = mount.dataset.limit ? parseInt(mount.dataset.limit, 10) : null;
+  const squareThumbs = mount.dataset.thumb === "square";
 
   const STATUS = {
     "released": "Released",
@@ -42,10 +43,11 @@
 
   function cardHTML(p) {
     const href = `product.html?slug=${encodeURIComponent(p.slug)}`;
-    const img = p.thumb || p.icon;
+    const img = squareThumbs ? p.icon : (p.thumb || p.icon);
+    const cls = squareThumbs ? "thumb thumb--square" : "thumb";
     const thumb = img
-      ? `<img class="thumb" src="assets/img/${img}" alt="" loading="lazy">`
-      : `<div class="thumb thumb--empty"></div>`;
+      ? `<img class="${cls}" src="assets/img/${img}" alt="" loading="lazy">`
+      : `<div class="${cls} thumb--empty"></div>`;
     const free = p.free ? `<span class="badge free">Free</span>` : "";
     const loaders = (p.loaders || []).slice(0, 3).map(l => `<span class="badge">${esc(l)}</span>`).join("");
     const dl = p.downloads ? `<span class="dl">${fmt(p.downloads)} downloads</span>` : "";

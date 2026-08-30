@@ -245,7 +245,7 @@
         "curseforge": "https://www.curseforge.com/minecraft/mc-mods/modern-morph",
         "modrinth": "https://modrinth.com/mod/modern-morph"
       },
-      "featured": true
+      "featured": false
     },
     {
       "slug": "modern-apple-cows",
@@ -302,7 +302,7 @@
         "curseforge": "https://www.curseforge.com/minecraft/mc-mods/sizeable-foliage",
         "modrinth": "https://modrinth.com/mod/sizeable-foliage"
       },
-      "featured": false
+      "featured": true
     },
     {
       "slug": "decorative-sniffer-eggs",
