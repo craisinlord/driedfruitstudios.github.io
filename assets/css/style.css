@@ -60,10 +60,8 @@ img { max-width: 100%; display: block; }
 }
 .brand:hover { text-decoration: none; }
 .brand .mark {
-  width: 28px; height: 28px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  display: inline-block;
+  width: 34px; height: 34px;
+  display: block;
 }
 .nav-links { display: flex; gap: 22px; align-items: center; }
 .nav-links a {
@@ -130,8 +128,7 @@ img { max-width: 100%; display: block; }
 
 /* Sections */
 section { padding: 56px 0; }
-section h2 { font-size: 1.6rem; margin: 0 0 6px; }
-section .section-sub { color: var(--text-dim); margin: 0 0 28px; }
+section h2 { font-size: 1.6rem; margin: 0 0 24px; }
 
 /* Product grid */
 .filters {
