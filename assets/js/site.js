@@ -19,7 +19,7 @@
     <header class="site-header">
       <div class="wrap">
         <a class="brand" href="index.html">
-          <img class="mark" src="/assets/img/brand/logo.png" alt="">
+          <img class="mark" src="/assets/img/brand/logo.png?v=2" alt="">
           Dried Fruit Studios
         </a>
         <button class="nav-toggle" aria-label="Menu">&#9776;</button>
