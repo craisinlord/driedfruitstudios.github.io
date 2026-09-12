@@ -1,5 +1,5 @@
 /* #product-grid attributes: data-category (java-mod|java-modpack|bedrock-addon|all),
-   data-featured="true", data-limit="N". */
+   data-featured="true", data-limit="N", data-layout="carousel" (default: grid). */
 (function () {
   const mount = document.getElementById("product-grid");
   if (!mount) return;
@@ -8,6 +8,7 @@
   const wantFeatured = mount.dataset.featured === "true";
   const limit = mount.dataset.limit ? parseInt(mount.dataset.limit, 10) : null;
   const squareThumbs = mount.dataset.thumb === "square";
+  const carousel = mount.dataset.layout === "carousel";
 
   const STATUS = {
     "released": "Released",
@@ -15,7 +16,7 @@
     "planned": "Coming soon",
   };
 
-  fetch("data/products.json")
+  fetch("data/products.json", { cache: "no-store" })
     .then(r => r.json())
     .then(data => {
       let items = data.products || [];
@@ -33,8 +34,17 @@
         mount.innerHTML = `<p class="empty-note">Nothing here yet — check back soon.</p>`;
         return;
       }
-      mount.className = "grid";
+      mount.className = carousel ? "carousel" : "grid";
       mount.innerHTML = items.map(cardHTML).join("");
+
+      if (carousel) {
+        const scope = mount.closest(".wrap") || mount.parentElement;
+        const prev = scope.querySelector(".carousel-arrow.prev");
+        const next = scope.querySelector(".carousel-arrow.next");
+        const scrollBy = () => Math.min(mount.clientWidth * 0.8, 600);
+        if (prev) prev.addEventListener("click", () => mount.scrollBy({ left: -scrollBy(), behavior: "smooth" }));
+        if (next) next.addEventListener("click", () => mount.scrollBy({ left: scrollBy(), behavior: "smooth" }));
+      }
     })
     .catch(err => {
       mount.innerHTML = `<p class="empty-note">Could not load products.</p>`;
@@ -54,6 +64,12 @@
     const mc = p.minecraftVersions
       ? `<span class="dl">MC ${esc(Array.isArray(p.minecraftVersions) ? p.minecraftVersions.join(", ") : p.minecraftVersions)}</span>`
       : "";
+    const rating = p.rating
+      ? `<span class="dl">&#9733; ${p.rating.toFixed(1)}${p.ratingCount ? ` (${fmt(p.ratingCount)})` : ""}</span>`
+      : "";
+    const price = p.price
+      ? `<span class="dl">${fmt(p.price)} Minecoins</span>`
+      : "";
 
     return `
       <a class="card" href="${href}">
@@ -66,7 +82,7 @@
             ${loaders}
           </div>
           <p class="tagline">${esc(p.summary || "")}</p>
-          <div class="card-foot">${dl}${mc}</div>
+          <div class="card-foot">${dl}${mc}${rating}${price}</div>
         </div>
       </a>`;
   }

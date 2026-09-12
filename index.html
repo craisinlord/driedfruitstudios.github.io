@@ -5,16 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dried Fruit Studios — Minecraft mods, modpacks & Bedrock addons</title>
   <meta name="description" content="Dried Fruit Studios LLC is a Minecraft modding and Bedrock addon studio led by CraisinLord. Browse our Java mods, modpacks, and Bedrock addons.">
-  <link rel="icon" type="image/png" href="/assets/img/brand/favicon-32.png?v=3">
-  <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png?v=3">
+  <link rel="icon" type="image/png" href="/assets/img/brand/favicon-32.png?v=10">
+  <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png?v=10">
   <meta property="og:title" content="Dried Fruit Studios">
   <meta property="og:description" content="A Minecraft modding and Bedrock addon studio led by CraisinLord.">
-  <meta property="og:image" content="https://driedfruitstudios.com/assets/img/brand/icon-512.png?v=3">
+  <meta property="og:image" content="https://driedfruitstudios.com/assets/img/brand/og.jpg?v=1">
   <meta property="og:url" content="https://driedfruitstudios.com/">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 <body>
+  <div id="site-banner"></div>
   <div id="site-header"></div>
 
   <main>
@@ -27,10 +28,17 @@
       </div>
     </section>
 
-    <section>
+    <section class="creations">
       <div class="wrap">
-        <h2>Featured</h2>
-        <div id="product-grid" data-category="all" data-featured="true" data-limit="6"></div>
+        <p class="eyebrow">Featured</p>
+        <h2 class="creations-title">Adventure <span class="grad">in a box</span></h2>
+        <div class="carousel-wrap">
+          <div id="product-grid" data-category="all" data-featured="true" data-limit="6" data-layout="carousel"></div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-arrow prev" aria-label="Previous">&#8249;</button>
+          <button class="carousel-arrow next" aria-label="Next">&#8250;</button>
+        </div>
       </div>
     </section>
 
@@ -47,8 +55,10 @@
     </section>
   </main>
 
+  <div id="site-contact"></div>
+
   <div id="site-footer"></div>
-  <script src="assets/js/site.js?v=4"></script>
-  <script src="assets/js/products.js?v=4"></script>
+  <script src="assets/js/site.js?v=10"></script>
+  <script src="assets/js/products.js?v=10"></script>
 </body>
 </html>

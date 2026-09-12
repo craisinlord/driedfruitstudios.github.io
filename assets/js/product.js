@@ -14,7 +14,7 @@
 
   if (!slug) { fail("No product specified."); return; }
 
-  fetch("data/products.json")
+  fetch("data/products.json", { cache: "no-store" })
     .then(r => r.json())
     .then(data => {
       const p = (data.products || []).find(x => x.slug === slug);
@@ -35,12 +35,18 @@
       .filter(([, u]) => u)
       .map(([k, u]) => `<a class="btn${k === "curseforge" || k === "marketplace" ? "" : " secondary"}" href="${u}" target="_blank" rel="noopener">${LINK[k] || k}</a>`)
       .join("");
-    const priceVal = p.free
-      ? `<span class="badge free">Free</span>`
-      : (p.category === "bedrock-addon" ? "Paid" : "");
+    const priceVal = p.price
+      ? `${esc(fmt(p.price))} Minecoins`
+      : p.free
+        ? `<span class="badge free">Free</span>`
+        : (p.category === "bedrock-addon" ? "Paid" : "");
+    const ratingVal = p.rating
+      ? `&#9733; ${esc(p.rating.toFixed(1))}${p.ratingCount ? ` <span class="muted">(${esc(fmt(p.ratingCount))} ratings)</span>` : ""}`
+      : "";
     const facts = [
       ["Status", STATUS[p.status] || p.status],
       priceVal ? ["Price", priceVal] : null,
+      ratingVal ? ["Rating", ratingVal] : null,
       loaders ? ["Loaders", loaders] : null,
       mc ? ["Minecraft", esc(mc)] : null,
       p.downloads ? ["Downloads", esc(fmt(p.downloads)) + (generated ? ` <span class="muted">(as of ${esc(generated)})</span>` : "")] : null,

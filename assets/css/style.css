@@ -36,6 +36,13 @@ img { max-width: 100%; display: block; }
 
 .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
+/* Top banner */
+.site-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Header / nav */
 .site-header {
   border-bottom: 1px solid var(--border);
@@ -201,6 +208,45 @@ a.card:hover { text-decoration: none; border-color: var(--accent); transform: tr
 .card .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
 .card .links a { font-size: 0.88rem; font-weight: 600; }
 
+/* Creations / carousel */
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.creations-title { font-size: clamp(1.7rem, 4vw, 2.5rem); margin: 0 0 28px; }
+.creations-title .grad {
+  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel .card { flex: 0 0 280px; scroll-snap-align: start; }
+.carousel-controls { display: flex; gap: 12px; margin-top: 20px; }
+.carousel-arrow {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.carousel-arrow:hover { border-color: var(--accent); color: var(--accent); }
+
 /* Info page */
 .prose { max-width: 720px; }
 .prose h2 { margin-top: 40px; }
@@ -234,6 +280,77 @@ a.card:hover { text-decoration: none; border-color: var(--accent); transform: tr
 .stat { display: flex; flex-direction: column; }
 .stat strong { font-size: 1.6rem; color: var(--accent); line-height: 1.1; }
 .stat span { color: var(--text-dim); font-size: 0.9rem; }
+
+/* Contact */
+.contact-cta {
+  border-top: 1px solid var(--border);
+  background: var(--bg-raised);
+  text-align: center;
+}
+.contact-cta h2 { margin: 0 0 6px; }
+.contact-cta .section-sub { margin: 0 0 24px; }
+.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin-bottom: 40px; }
+.contact-item {
+  display: inline-flex; align-items: center; gap: 14px;
+  color: var(--text); text-align: left;
+}
+.contact-item:hover { text-decoration: none; }
+.contact-item:hover .value { color: var(--accent); }
+.contact-item-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+.contact-item-icon svg { width: 20px; height: 20px; }
+.contact-item-text { display: flex; flex-direction: column; gap: 2px; }
+.contact-item-text .label { font-size: 0.78rem; color: var(--text-dim); }
+.contact-item-text .value { font-weight: 700; }
+
+.contact-form {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: left;
+}
+.contact-form h3 { margin: 0 0 20px; font-size: 1.2rem; text-align: center; }
+.contact-form .form-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.contact-form .form-row label { flex: 1; min-width: 200px; }
+.contact-form label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.contact-form textarea { resize: vertical; }
+.contact-form .btn { border: none; cursor: pointer; }
+.contact-form .form-note { margin: 12px 0 0; font-size: 0.8rem; color: var(--text-dim); }
 
 /* Footer */
 .site-footer {
